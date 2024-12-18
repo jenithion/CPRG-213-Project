@@ -4,7 +4,7 @@
 // When do they need to be reset or updated?
 let days_selected = 0;
 let cost = 0;
-let time = true //ture is equal to full half is equal to false
+let time = true; //ture is equal to full half is equal to false
 
 
 /********* colour change days of week *********/
@@ -16,11 +16,11 @@ const WEDNESDAY = document.getElementById("wednesday");
 const THURSDAY = document.getElementById("thursday");
 const FRIDAY = document.getElementById("friday");
 
-MONDAY.onclick = () => {day_clicked(MONDAY)};
-TUESDAY.onclick = () => {day_clicked(TUESDAY)};
-WEDNESDAY.onclick = () => {day_clicked(WEDNESDAY)};
-THURSDAY.onclick = () => {day_clicked(THURSDAY)};
-FRIDAY.onclick = () => {day_clicked(FRIDAY)};
+MONDAY.onclick = () => {day_clicked(MONDAY);};
+TUESDAY.onclick = () => {day_clicked(TUESDAY);};
+WEDNESDAY.onclick = () => {day_clicked(WEDNESDAY);};
+THURSDAY.onclick = () => {day_clicked(THURSDAY);};
+FRIDAY.onclick = () => {day_clicked(FRIDAY);};
 
 function day_clicked(day){
     const IS_DAY_CLICKED = day.classList;
@@ -31,7 +31,7 @@ function day_clicked(day){
         IS_DAY_CLICKED.remove("clicked"); 
         days_selected--;
     }
-    update_cost()
+    update_cost();
 }
 
 /********* clear days *********/
@@ -41,13 +41,12 @@ const CLEAR_BUTTON = document.getElementById("clear-button");
 
 CLEAR_BUTTON.onclick = () => {
     days_selected = 0;
-    update_cost()
-    console.log(cost)
+    update_cost();
 
-    for(i = 0; i <= DAYS.length; i++){
+    for(let i = 0; i <= DAYS.length; i++){
         remove_clicked(DAYS[i]);
     }
-}
+};
 
 function remove_clicked(day){
     if(day.classList.contains("clicked") == true){
@@ -61,22 +60,22 @@ const FULL_DAY_BUTTON = document.getElementById("full");
 const HALF_DAY_BUTTON = document.getElementById("half");
 
 FULL_DAY_BUTTON.onclick = () => {
-    time = true
-    FULL_DAY_BUTTON.classList.add("clicked")
+    time = true;
+    FULL_DAY_BUTTON.classList.add("clicked");
     if(HALF_DAY_BUTTON.classList.contains("clicked")){
-        HALF_DAY_BUTTON.classList.remove("clicked")
+        HALF_DAY_BUTTON.classList.remove("clicked");
     }
-    update_cost()
-}
+    update_cost();
+};
 
 HALF_DAY_BUTTON.onclick = () => {
-    time = false
-    HALF_DAY_BUTTON.classList.add("clicked")
+    time = false;
+    HALF_DAY_BUTTON.classList.add("clicked");
     if(FULL_DAY_BUTTON.classList.contains("clicked")){
-        FULL_DAY_BUTTON.classList.remove("clicked")
+        FULL_DAY_BUTTON.classList.remove("clicked");
     }
-    update_cost()
-}
+    update_cost();
+};
 
 
 
